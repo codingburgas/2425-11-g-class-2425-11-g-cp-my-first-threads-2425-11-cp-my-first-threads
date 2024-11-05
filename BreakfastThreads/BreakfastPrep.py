@@ -16,12 +16,19 @@ toast = Toast()
 jam = Toast()
 juice = Juice()
 
-coffee_thread = threading.Thread(target=Coffee.make_coffee(coffee,1))
-eggs_thread = threading.Thread(target=Egg.make_eggs(egg,3))
-bacon_thread = threading.Thread(target=Bacon.make_bacon(bacon,2))
-toast_thread = threading.Thread(target=Toast.make_toast(toast,2))
-jam_thread = threading.Thread(target=Toast.jam_the_toast(jam,1))
-juice_thread = threading.Thread(target=Juice.make_juice(juice,1))
+coffee.quantity = 1
+egg.quantity = 2
+bacon.quantity = 3
+toast.quantity = 2
+jam.quantity = 1
+juice.quantity = 1
+
+coffee_thread = threading.Thread(target=Coffee.make_coffee(coffee,coffee.quantity))
+eggs_thread = threading.Thread(target=Egg.make_eggs(egg,egg.quantity))
+bacon_thread = threading.Thread(target=Bacon.make_bacon(bacon,bacon.quantity))
+toast_thread = threading.Thread(target=Toast.make_toast(toast,toast.quantity))
+jam_thread = threading.Thread(target=Toast.jam_the_toast(jam,jam.quantity))
+juice_thread = threading.Thread(target=Juice.make_juice(juice,juice.quantity))
 
 # PROGRESS BAR INSTANCE
 progress_bar = ProgressBar()
@@ -31,7 +38,7 @@ coffee_thread.start()
 
 coffee_thread.join()
 
-progress_counter += coffee_thread # TODO: Fix data type cast
+progress_counter += coffee.quantity
 
 progress_bar.display_progress_bar(progress_counter)
 
@@ -40,16 +47,14 @@ eggs_thread.start()
 
 eggs_thread.join()
 
-progress_counter += coffee_thread # TODO: Fix data type cast
-
-progress_bar.display_progress_bar(progress_counter)
+progress_counter += egg.quantity
 
 # START AND DISPLAY BACON THREAD PROGRESS
 bacon_thread.start()
 
 bacon_thread.join()
 
-progress_counter += coffee_thread # TODO: Fix data type cast
+progress_counter += bacon.quantity
 
 progress_bar.display_progress_bar(progress_counter)
 
@@ -58,7 +63,7 @@ toast_thread.start()
 
 toast_thread.join()
 
-progress_counter += coffee_thread # TODO: Fix data type cast
+progress_counter += toast.quantity
 
 progress_bar.display_progress_bar(progress_counter)
 
@@ -67,7 +72,7 @@ jam_thread.start()
 
 jam_thread.join()
 
-progress_counter += coffee_thread # TODO: Fix data type cast
+progress_counter += jam.quantity
 
 progress_bar.display_progress_bar(progress_counter)
 
@@ -76,7 +81,7 @@ juice_thread.start()
 
 juice_thread.join()
 
-progress_counter += coffee_thread # TODO: Fix data type cast
+progress_counter += juice.quantity
 
 progress_bar.display_progress_bar(progress_counter)
 

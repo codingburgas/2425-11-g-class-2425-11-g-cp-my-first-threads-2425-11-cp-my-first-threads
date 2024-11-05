@@ -6,3 +6,5 @@ class ProgressBar:
 
         for i in range(0, 10 - progress, 1):
             print("░░", end="")
+
+        print()
