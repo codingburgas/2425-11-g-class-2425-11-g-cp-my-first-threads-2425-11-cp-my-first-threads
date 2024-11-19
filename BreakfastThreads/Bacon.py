@@ -4,3 +4,5 @@ class Bacon:
     def make_bacon(self, quantity):
 
         time.sleep(1 * quantity)
+
+        print("Bacon thread")

@@ -5,7 +5,11 @@ class Toast:
 
         time.sleep(1 * quantity)
 
+        print("Toast thread")
+
 
     def jam_the_toast(self, quantity):
 
         time.sleep(1 * quantity)
+
+        print("Jam thread")
